@@ -65,6 +65,8 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 
 ![Advenure](https://discourse.tinyfpga.com/uploads/default/original/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9.jpeg "Adventure")
 
+[Adventure and its Easter Egg](https://youtu.be/VYmfEx3taAM) are a prominent part of the plot of Steven Spielberg's Ready Player One.
+
 ### Pitfall and other Atari 2600 games
 
 #### Super Mario Bros
@@ -150,8 +152,12 @@ There are a variety of games that you can build for the console, or you can writ
 
 ### SD card menu
 
-If you want multiple games on your console without having to upload them one at a time using the USB connector, you will need to iuse the SD card.
-To do this you will need to solder wires between pins 32, 33, 24 and 35 
+If you want multiple games on your console without having to upload them one at a time using the USB connector, you will need to use the SD card.
+To do this you will need to solder wires between pins 32, 33, 24 and 35 and the TinyFPGA BX. But as the console already uses all the pins that are
+available on the header, you will need to reuse existing pins. I used the bins that are connected to the direction buttons as these are not needed for
+an SD card menu.
+
+
 
 
 

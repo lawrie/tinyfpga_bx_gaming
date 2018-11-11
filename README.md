@@ -65,7 +65,7 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 
 ![Advenure](https://discourse.tinyfpga.com/uploads/default/original/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9.jpeg "Adventure")
 
-[Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM?t=363] are a prominent part of the plot of Steven Spielberg's Ready Player One.
+[Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM?t=363) are a prominent part of the plot of Steven Spielberg's Ready Player One.
 
 ### Pitfall and other Atari 2600 games
 

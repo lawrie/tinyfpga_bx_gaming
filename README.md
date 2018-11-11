@@ -61,11 +61,15 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 
 #### Asteroids
 
-### Pitfall
-
 #### Adventure
 
+### Pitfall and other Atari 2600 games
+
 #### Super Mario Bros
+
+#### Tetris
+
+#### Mario Kart
 
 ### Games consoles
 
@@ -102,6 +106,48 @@ Another early example is the Television Interface Adapter (TIA) used by the Atar
 #### Commodore C64
 
 #### Commodore Amiga
+
+## Building your own version
+
+### The hardware
+
+You will need a TinyFPGA BX, which can be bought from a variety of sources including Tindie, Sparkfun and Amazon UK.
+
+To build the portable version you will need to get a version of Fabien Chouseau's PCB or build your own.
+
+There are not many components on the PCB. There are the headers for the TintFPGA and the LCD screen, connectors for the batteries,
+a switch and an audio connector. There are also 7 SMD passive devices: 4 capacitors, 2 resistors and a diode.
+
+You will also need the LCD screen.
+
+### Unix machine or VM
+
+You will need a Unix machine to build the software. This can be a MAC or a Linux box, or a VM on a Windows machine. 
+
+You should install the TinyFPGA tools and the picov32 GNU compiler.
+
+### Games
+
+There are a variety of games that you can build for the console, or you can write your own.
+
+#### Dave Gundy's demo
+
+#### Pacman
+
+#### Tetris 
+
+#### Super Mario Bros
+
+#### Asteroids
+
+#### Adventure
+
+### SD card menu
+
+If you want multiple games on your console without having to upload them one at a time using the USB connector, you will need to iuse the SD card.
+To do this you will need to solder wires between pins 32, 33, 24 and 35 
+
+
 
 
 

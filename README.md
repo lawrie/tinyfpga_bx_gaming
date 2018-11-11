@@ -28,6 +28,64 @@ and video RAM. This is sufficient for emulating early consoles such as the Atari
 The TinyFPGA also has 1 Mb of flash memory. A significant fraction is available for executing code from. So a version of PicoSoC can be produced that runs the code 
 from flash memory allowing much bigger programs, but still limiting VGA buffers and writeable data to 14kb.
 
+This project was started by ![Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553 "discussion") on the TinyFPGA forum.
+
+### LCD Screen
+
+The ![Games Console](https://www.buydisplay.com/default/2-8-inch-tft-touch-shield-for-arduino-w-capacitive-touch-screen-module "Games Console") used is a 320 x 240 screen
+using the 8-bit 8080 driver and without any touchscreen option.
+
+### Audio
+
+The audio is based on Dave Gundy's tiny-synth project which implements an audio synthesizer similar to the Commodore C64 SID chip.
+
+## History of Gaming
+
+### Classic Games
+
+#### Pong
+
+The earliest video games such as Pong and Space Invaders were implemented on dedicated Arcade machines, or dedicated hardware that plugged into a TV, such as the Atari Pong machine.
+
+Pong is such a simple game that it can be implemented on an FPGA without using a CPU. Here is my port of the Pong game from the fpga4fun site, running on the Tiny FPGA BX.
+It uses a rotary encoder to control the board and uses VGA output. It is not the full pong games as it only has one player, and does not show the score, but could 	easily be
+modified to be more like the original pong game.
+
+#### Space Invaders
+
+Slightly more sophisticatede games such as Space Invaders could be implemented without a CPU, but it is hard to do that, and much easier using a CPU.
+
+#### Pacman
+
+
+#### Asteroids
+
+### Pitfall
+
+#### Adventure
+
+#### Super Mario Bros
+
+### Games consoles
+
+#### Atari 2600
+
+#### Nintendo NES
+
+#### Nintendo SNES
+
+#### Nintendo Gameboy
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -32,7 +32,7 @@ This project was started by ![Discussion](https://discourse.tinyfpga.com/t/bx-po
 
 ### LCD Screen
 
-The ![Games Console](https://www.buydisplay.com/default/2-8-inch-tft-touch-shield-for-arduino-w-capacitive-touch-screen-module "Games Console") used is a 320 x 240 screen
+The [LCD Screen](https://www.buydisplay.com/default/2-8-inch-tft-touch-shield-for-arduino-w-capacitive-touch-screen-module) used is a 320 x 240 screen
 using the 8-bit 8080 driver and without any touchscreen option.
 
 ### Audio
@@ -50,6 +50,8 @@ The earliest video games such as Pong and Space Invaders were implemented on ded
 Pong is such a simple game that it can be implemented on an FPGA without using a CPU. Here is my port of the Pong game from the fpga4fun site, running on the Tiny FPGA BX.
 It uses a rotary encoder to control the board and uses VGA output. It is not the full pong games as it only has one player, and does not show the score, but could 	easily be
 modified to be more like the original pong game.
+
+![Fpga4fun Pong](https://discourse.tinyfpga.com/uploads/default/original/1X/e4ccbf25da97bfff96cda172fdfdac4a033995c4.jpg "Fpga4fun Pong")
 
 #### Space Invaders
 
@@ -75,6 +77,14 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 #### Nintendo SNES
 
 #### Nintendo Gameboy
+
+### Graphics Processing Units
+
+What are now called Graphics Processing Units started life as very simple devices to support writing to TV screens using minimals resource such as RAM and CPU time.
+
+The Apple One computer had an extremely simple chip for driving the TV. There is an implementation of the Apple One on the TinyFPGA BX.
+
+Another early example is the Television Interface Adapter (TIA) used by the Atari 2600.
 
 
 

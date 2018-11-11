@@ -113,7 +113,8 @@ Another early example is the Television Interface Adapter (TIA) used by the Atar
 
 ### The hardware
 
-You will need a TinyFPGA BX, which can be bought from a variety of sources including Tindie, Sparkfun and Amazon UK.
+You will need a TinyFPGA BX, which can be bought from a variety of sources including [Tindie](https://www.tindie.com/products/tinyfpga/tinyfpga-bx/), 
+[Sparkfun](https://www.sparkfun.com/products/14829) and [Amazon UK](https://www.amazon.co.uk/TinyFPGA-BX-Without-Pins/dp/B07HCXTNFX/ref=sr_1_1).
 
 To build the portable version you will need to get a version of Fabien Chouseau's PCB or build your own.
 

@@ -28,7 +28,7 @@ and video RAM. This is sufficient for emulating early consoles such as the Atari
 The TinyFPGA also has 1 Mb of flash memory. A significant fraction is available for executing code from. So a version of PicoSoC can be produced that runs the code 
 from flash memory allowing much bigger programs, but still limiting VGA buffers and writeable data to 14kb.
 
-This project was started by ![Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553 "discussion") on the TinyFPGA forum.
+This project was started by Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553) on the TinyFPGA forum.
 
 ### LCD Screen
 
@@ -59,7 +59,6 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 
 #### Pacman
 
-
 #### Asteroids
 
 ### Pitfall
@@ -82,9 +81,30 @@ Slightly more sophisticatede games such as Space Invaders could be implemented w
 
 What are now called Graphics Processing Units started life as very simple devices to support writing to TV screens using minimals resource such as RAM and CPU time.
 
+#### Apple One
+
 The Apple One computer had an extremely simple chip for driving the TV. There is an implementation of the Apple One on the TinyFPGA BX.
 
+#### Atari TIA
+
 Another early example is the Television Interface Adapter (TIA) used by the Atari 2600.
+
+#### NES Picture Processing Unit (PPU)
+
+### Home Computers
+
+#### Apple One
+
+#### Sinclair ZX Sprecturm
+
+#### Acorn Atom and BBC Micro
+
+#### Commodore C64
+
+#### Commodore Amiga
+
+
+
 
 
 

@@ -109,6 +109,9 @@ Another early example is the Television Interface Adapter (TIA) used by the Atar
 
 #### Commodore Amiga
 
+The Amiga is too complex to implement on the TintFPGA BX, but [here it is](https://www.youtube.com/watch?v=q0nysMydf4I) running on a Lattice ECP5 open source board,
+for which the icestorm toolchain is nearly ready, so this might be feasible on the next round of open source FPGA, possibly on the TinyFPGA EX.
+
 ## Building your own version
 
 ### The hardware

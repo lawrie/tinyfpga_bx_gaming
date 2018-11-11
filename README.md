@@ -31,7 +31,7 @@ to be used that has 14kb of RAM for the code, data and video RAM. This is suffic
 The TinyFPGA also has 1 Mb of flash memory. A significant fraction is available for executing code from. So a version of PicoSoC can be produced that runs the code 
 from flash memory allowing much bigger programs, but still limiting VGA buffers and writeable data to 14kb.
 
-This project was started by Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553) on the TinyFPGA forum.
+This project was started by a [Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553) on the TinyFPGA forum.
 
 ### LCD Screen
 
@@ -47,10 +47,13 @@ The audio is based on Dave Gundy's [tiny-synth](https://github.com/gundy/tiny-sy
 
 ### Arcade machine games
 
+The earliest video games were implemented using dedicated hardware in arcade machines. Two of the earlist siccessful ones were Pong and Space Invaders.
+
 ![Arcade Game](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Video_game_-_Ms_Pacman_and_Galaga.jpg/1280px-Video_game_-_Ms_Pacman_and_Galaga.jpg "Arcade Game")
 
 #### Pong
-The earliest video games such as Pong and Space Invaders were implemented on dedicated Arcade machines, or dedicated hardware that plugged into a TV, such as the 
+
+As well as  arcade machine dedicated games machines that plugged into a home TV were produced, such as the 
 [Atari Pong machine](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TeleGames-Atari-Pong.png/330px-TeleGames-Atari-Pong.png).
 
 Pong is such a simple game that it can be implemented on an FPGA without using a CPU. [Here](https://github.com/lawrie/tinyfpga_examples/tree/master/pong) is my port of the 

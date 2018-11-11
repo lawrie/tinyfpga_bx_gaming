@@ -43,7 +43,7 @@ using the 8-bit 8080 driver and without any touchscreen option.
 The audio is based on Dave Gundy's [tiny-synth](https://github.com/gundy/tiny-synth) project which implements an audio synthesizer similar to the 
 [Commodore C64 SID](https://www.c64-wiki.com/wiki/SID) chip.
 
-## History of Gaming
+## Early History of Video Gaming
 
 ### Arcade machine games
 
@@ -57,8 +57,8 @@ As well as  arcade machine dedicated games machines that plugged into a home TV 
 [Atari Pong machine](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TeleGames-Atari-Pong.png/330px-TeleGames-Atari-Pong.png).
 
 Pong is such a simple game that it can be implemented on an FPGA without using a CPU. [Here](https://github.com/lawrie/tinyfpga_examples/tree/master/pong) is my port of the 
-Pong game from the fpga4fun site, running on the Tiny FPGA BX. It uses a rotary encoder to control the board and uses VGA output. It is not the full pong games as it 
-only has one player, and does not show the score, but could easily be modified to be more like the original pong game.
+Pong game from the [fpga4fun site](https://www.fpga4fun.com/PongGame.html), running on the Tiny FPGA BX. It uses a rotary encoder to control the board and uses VGA output. 
+It is not the full pong games as it only has one player, and does not show the score, but could easily be modified to be more like the original pong game.
 
 ![Fpga4fun Pong](https://discourse.tinyfpga.com/uploads/default/original/1X/e4ccbf25da97bfff96cda172fdfdac4a033995c4.jpg "Fpga4fun Pong")
 
@@ -68,67 +68,121 @@ Slightly more sophisticated games such as Space Invaders could be implemented wi
 
 I ported the FPGAWars group's start of a [Space Invaders game](https://github.com/lawrie/Space-Invaders) to the TinyFPGA BX.
 
+#### Asteroids
+
+Another successful arcade game was asteroids. The arcade game used vector graphics to generate the video signal.
+
+We are porting Asteroids to the handheld games console.
+
 #### Pacman
 
 The first really successful Arcade Game surpassing Pong and Space Invaders by some distance, was PacMan.
 
-we have a version of PacMan running on the tiny_fpga_bx_game_soc. 
+We have a version of PacMan running on the [tiny_fpga_bx_game_soc](https://github.com/lawrie/tinyfpga-bx-game-soc/tree/develop/games/pacman_lcd). 
+It can use a VGA monitor or can run on our handheld console. Our version is closer to the layout used on the Nintendo Entertainment System game console (see below)
+than the arcade game version.
+
+#### Other arcade games
+
+Other very successful Arcade games included Defender, Donkey Kong, Frogger, Galaga, Joust and Ms PacMan.
 
 ### Home Games Consoles
 
-### Atari 2600
+#### Atari 2600
 
-The first really successful games console was the Atari 2600. It used a chip called the Television Interface Adapter to 
-#### Adventure
+The first really successful games console was the Atari 2600. It used a chip called the Television Interface Adapter to generate TV output on the fly.
+
+There were ports of arcade games such as Pong, Space Invaders and for the Atari 2600, but soon new games were being produced by Atari for the 2600.
+
+One example is Adventure.
+
+##### Adventure
 
 ![Advenure](https://discourse.tinyfpga.com/uploads/default/original/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9.jpeg "Adventure")
 
 [Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM&t=363) are a prominent part of the plot of Steven Spielberg's Ready Player One.
 
-#### Pitfall and other Atari 2600 games
+Games developers did not get recognition or royalties for their games at Atari, so several of their programmers left to form Activision. One of theirmost successful games 
+for the Atari 2600 was Pitfall.
+
+After the Video game crash of 1983, leadership in games console market moved from North America to Japan. The Nintendo Entertainment System (NES) was the most successful.
 
 #### Nintendo NES
 
-#### Super Mario Bros
+The game that led sales of the NES was Super Mario Bros, developing the characters of Mario and his brother Luigi, who had been introduced in the earlier
+aracde games Donkey Kong and Mario Bros.
+
+##### Super Mario Bros
+
+We have the start of a port of Super Mario Bros to our games console.
 
 #### Nintendo SNES
 
-#### Mario Kart
+After a few years the 8-bit NES was replaced by the 16-bit Super NES. The Super NES supported multiple video modes the most interesting of which
+was mode 7 which implemented a simple 3D view. 
+
+A successful game that used mode 7 was Super Mario Kart.
+
+##### Mario Kart
 
 ### Handheld games consoles
 
+The most succesful early handheld games console was the Nintendo Gameboy. The original was black and white but that a colour version, the Gameboy Color 
+followed soon, and later the Gameboy Advance. Our games console has a similar form-factor to the Gameboy Advance, but later version of the Advance movedto a clamshell design.
+
 #### Nintendo Gameboy
 
-#### Tetris
+##### Tetris
+
+The game that was launched with the Gameboy and ensured its success was Tetris.
+
+We have a port of Tetris on our games console.
 
 ### Home Computers
 
+There are some early home computers that were important in the history of gaming.
+
 #### Apple One
 
-#### Sinclair ZX Sprecturm
+The Apple One was not such a machine as only a tiny number were produced, but it is interesting for the way that it generated its video signal.
+There is a port of the Apple One to several icestorm FPGAs including the TinyFPGA B2 and the mystorm BlackIce II.
+
+The game Breakout was produced by Steve Wozniak, the designer of the Apple One and the Apple Two. He produced it for the Atari 2600.
+
+#### Sinclair ZX Sprectum
+
+The ZX Spectrum was a very cheap home computer that very many games were produced for.
 
 #### Acorn Atom and BBC Micro
 
+Other UK home computers were the Acorn Atom and its much more powerful successor, the BBC Micro. There arte ports for these for the mystorm BlackIce II.
+
 #### Commodore C64
+
+The Commodore C64 was the most succesful home compter ever produced, and was designed for games. Many successful games were produced for it.
+
+The video system for our games console takes several ideas from the C64 video system and bases its audio system or the C64 SID chip.
 
 #### Commodore Amiga
 
 The Amiga is too complex to implement on the TintFPGA BX, but [here it is](https://www.youtube.com/watch?v=q0nysMydf4I) running on a Lattice ECP5 open source board,
 for which the icestorm toolchain is nearly ready, so this might be feasible on the next round of open source FPGA, possibly on the TinyFPGA EX.
 
-### Graphics Processing Units
+## Graphics Processing Units
 
 What are now called Graphics Processing Units started life as very simple devices to support writing to TV screens using minimals resource such as RAM and CPU time.
 
-#### Apple One
+### Apple One
 
 The Apple One computer had an extremely simple chip for driving the TV. There is an implementation of the Apple One on the TinyFPGA BX.
 
-#### Atari TIA
+### Atari TIA
 
 Another early example is the Television Interface Adapter (TIA) used by the Atari 2600.
 
-#### NES Picture Processing Unit (PPU)
+### NES Picture Processing Unit (PPU)
+
+### SNES modes
 
 ## Building your own version
 

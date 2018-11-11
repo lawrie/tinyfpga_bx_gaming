@@ -5,15 +5,18 @@ This repository documents how to use the TinyFPGA BX as a Games Console.
 ## Overview
 
 A Field Programmable Gate Array (FPGA) is capable of emulating hardware such as an audio synthesizer, a Graphics Processing Unit (GPU), 
-and drivers for devices such as a VGA screen or an Liquid Cyystal Display (LCD), game controllers, buttons, etc. It is also capable of implemented a CPU as a Soft Processor.
+and drivers for devices such as a VGA screen or an Liquid Cyystal Display (LCD), game controllers, buttons, etc. It is also capable of implementing a CPU as a Soft Processor.
 
-This means that an FPGA such as the TinyFPGA BX can replace all the chips used in games consoles or early home computers.
+This means that an FPGA such as the TinyFPGA BX can replace all the chips used in early games consoles and home computers.
 
-The approach taken is to to use the picorv32 implementation of Risc-V for the CPU that runs the games. However, it is also possible to use other soft processors,
-such as a 6502 CPU or a Z80 CPU for specific games.
+The approach taken here is to to use the [picorv32](https://github.com/cliffordwolf/picorv32) implementation of [Risc-V](https://en.wikipedia.org/wiki/RISC-V) for the CPU 
+that runs the games. However, it is also possible to use other soft processors, such as a 6502 CPU or a Z80 CPU for specific games.
 
-The TinyFPGA has the resources to emulate games consoles, arcade machines and home computers of the late 1970s, and early 1980s. The next generation of
-open source FPGAs based on the ECP5 FPGA will be need for computers and consoles of the late 80s and early 90s.
+The TinyFPGA has the resources to emulate games consoles, arcade machines and home computers of the late 1970s, and early 1980s. With extra RAM it could emulate more early
+80s home computers. The myStorm BlackIce II board which uses a similar (but faster) FPGA has 256kb of external SRAM, which enables it to emulate home computers, such as
+the Acorn Atom and the BBC Micro.
+
+The next generation of open source FPGAs based on the ECP5 FPGA will be need for computers and consoles of the late 80s and early 90s, such as the Commodore Amiga.
 
 I will concentate on a portable Games Console that drives a 320 by 240 LCD, but the code in the repositories referenced also supports TV games consoles driven by VGA.
 Future implementations based on the ECP5 will support HDMI.
@@ -22,8 +25,8 @@ The hardware that I am using for portable Games console was produced by [Fabien 
 
 ![Games Console](https://discourse.tinyfpga.com/uploads/default/original/1X/5a128efae7be41d5a157ea954480067cdb7e602e.jpeg "Games Console")
 
-The TinyFPGA BX has 16kb of BRAM, or which 2kb is used by picorv32. This allows a RAM-only version of PicoSoC to be used that has 14kb of RAM for the code, data,
-and video RAM. This is sufficient for emulating early consoles such as the Atari 2600.
+The TinyFPGA BX has 16kb of BRAM, or which 2kb is used by picorv32. This allows a RAM-only version of [PicoSoC](https://github.com/cliffordwolf/picorv32/tree/master/picosoc) 
+to be used that has 14kb of RAM for the code, data and video RAM. This is sufficient for emulating early consoles such as the Atari 2600.
 
 The TinyFPGA also has 1 Mb of flash memory. A significant fraction is available for executing code from. So a version of PicoSoC can be produced that runs the code 
 from flash memory allowing much bigger programs, but still limiting VGA buffers and writeable data to 14kb.
@@ -37,67 +40,63 @@ using the 8-bit 8080 driver and without any touchscreen option.
 
 ### Audio
 
-The audio is based on Dave Gundy's tiny-synth project which implements an audio synthesizer similar to the Commodore C64 SID chip.
+The audio is based on Dave Gundy's [tiny-synth](https://github.com/gundy/tiny-synth) project which implements an audio synthesizer similar to the 
+[Commodore C64 SID](https://www.c64-wiki.com/wiki/SID) chip.
 
 ## History of Gaming
 
-### Classic Games
+### Arcade machine games
+
+![Arcade Game](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Video_game_-_Ms_Pacman_and_Galaga.jpg/1280px-Video_game_-_Ms_Pacman_and_Galaga.jpg "Arcade Game")
 
 #### Pong
+The earliest video games such as Pong and Space Invaders were implemented on dedicated Arcade machines, or dedicated hardware that plugged into a TV, such as the 
+[Atari Pong machine](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TeleGames-Atari-Pong.png/330px-TeleGames-Atari-Pong.png).
 
-The earliest video games such as Pong and Space Invaders were implemented on dedicated Arcade machines, or dedicated hardware that plugged into a TV, such as the Atari Pong machine.
-
-Pong is such a simple game that it can be implemented on an FPGA without using a CPU. Here is my port of the Pong game from the fpga4fun site, running on the Tiny FPGA BX.
-It uses a rotary encoder to control the board and uses VGA output. It is not the full pong games as it only has one player, and does not show the score, but could 	easily be
-modified to be more like the original pong game.
+Pong is such a simple game that it can be implemented on an FPGA without using a CPU. [Here](https://github.com/lawrie/tinyfpga_examples/tree/master/pong) is my port of the 
+Pong game from the fpga4fun site, running on the Tiny FPGA BX. It uses a rotary encoder to control the board and uses VGA output. It is not the full pong games as it 
+only has one player, and does not show the score, but could easily be modified to be more like the original pong game.
 
 ![Fpga4fun Pong](https://discourse.tinyfpga.com/uploads/default/original/1X/e4ccbf25da97bfff96cda172fdfdac4a033995c4.jpg "Fpga4fun Pong")
 
 #### Space Invaders
 
-Slightly more sophisticatede games such as Space Invaders could be implemented without a CPU, but it is hard to do that, and much easier using a CPU.
+Slightly more sophisticated games such as Space Invaders could be implemented without a CPU, but it is hard to do that, and much easier using a CPU.
+
+I ported the FPGAWars group's start of a [Space Invaders game](https://github.com/lawrie/Space-Invaders) to the TinyFPGA BX.
 
 #### Pacman
 
-#### Asteroids
+The first really successful Arcade Game surpassing Pong and Space Invaders by some distance, was PacMan.
 
+we have a version of PacMan running on the tiny_fpga_bx_game_soc. 
+
+### Home Games Consoles
+
+### Atari 2600
+
+The first really successful games console was the Atari 2600. It used a chip called the Television Interface Adapter to 
 #### Adventure
 
 ![Advenure](https://discourse.tinyfpga.com/uploads/default/original/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9.jpeg "Adventure")
 
 [Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM&t=363) are a prominent part of the plot of Steven Spielberg's Ready Player One.
 
-### Pitfall and other Atari 2600 games
-
-#### Super Mario Bros
-
-#### Tetris
-
-#### Mario Kart
-
-### Games consoles
-
-#### Atari 2600
+#### Pitfall and other Atari 2600 games
 
 #### Nintendo NES
 
+#### Super Mario Bros
+
 #### Nintendo SNES
+
+#### Mario Kart
+
+### Handheld games consoles
 
 #### Nintendo Gameboy
 
-### Graphics Processing Units
-
-What are now called Graphics Processing Units started life as very simple devices to support writing to TV screens using minimals resource such as RAM and CPU time.
-
-#### Apple One
-
-The Apple One computer had an extremely simple chip for driving the TV. There is an implementation of the Apple One on the TinyFPGA BX.
-
-#### Atari TIA
-
-Another early example is the Television Interface Adapter (TIA) used by the Atari 2600.
-
-#### NES Picture Processing Unit (PPU)
+#### Tetris
 
 ### Home Computers
 
@@ -113,6 +112,20 @@ Another early example is the Television Interface Adapter (TIA) used by the Atar
 
 The Amiga is too complex to implement on the TintFPGA BX, but [here it is](https://www.youtube.com/watch?v=q0nysMydf4I) running on a Lattice ECP5 open source board,
 for which the icestorm toolchain is nearly ready, so this might be feasible on the next round of open source FPGA, possibly on the TinyFPGA EX.
+
+### Graphics Processing Units
+
+What are now called Graphics Processing Units started life as very simple devices to support writing to TV screens using minimals resource such as RAM and CPU time.
+
+#### Apple One
+
+The Apple One computer had an extremely simple chip for driving the TV. There is an implementation of the Apple One on the TinyFPGA BX.
+
+#### Atari TIA
+
+Another early example is the Television Interface Adapter (TIA) used by the Atari 2600.
+
+#### NES Picture Processing Unit (PPU)
 
 ## Building your own version
 

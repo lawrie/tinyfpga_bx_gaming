@@ -47,7 +47,7 @@ The audio is based on Dave Gundy's [tiny-synth](https://github.com/gundy/tiny-sy
 
 ### Arcade machine games
 
-The earliest video games were implemented using dedicated hardware in arcade machines. Two of the earlist siccessful ones were Pong and Space Invaders.
+The earliest video games were implemented using dedicated hardware in arcade machines. Two of the earliest successful ones were Pong and Space Invaders.
 
 ![Arcade Game](https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Video_game_-_Ms_Pacman_and_Galaga.jpg/1280px-Video_game_-_Ms_Pacman_and_Galaga.jpg "Arcade Game")
 
@@ -90,9 +90,9 @@ Other very successful Arcade games included Defender, Donkey Kong, Frogger, Gala
 
 #### Atari 2600
 
-The first really successful games console was the Atari 2600. It used a chip called the Television Interface Adapter to generate TV output on the fly.
+The first really successful games console was the Atari 2600. It used a chip called the Television Interface Adapter (TIA) to generate TV output on the fly.
 
-There were ports of arcade games such as Pong, Space Invaders and for the Atari 2600, but soon new games were being produced by Atari for the 2600.
+There were ports of arcade games such as Pong, Space Invaders for the Atari 2600, but soon new games were being produced by Atari for the 2600.
 
 One example is Adventure.
 
@@ -102,7 +102,7 @@ One example is Adventure.
 
 [Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM&t=363) are a prominent part of the plot of Steven Spielberg's Ready Player One.
 
-Games developers did not get recognition or royalties for their games at Atari, so several of their programmers left to form Activision. One of theirmost successful games 
+Games developers did not get recognition or royalties for their games at Atari, so several of their programmers left to form Activision. One of their most successful games 
 for the Atari 2600 was Pitfall.
 
 After the Video game crash of 1983, leadership in games console market moved from North America to Japan. The Nintendo Entertainment System (NES) was the most successful.
@@ -208,6 +208,15 @@ You should install the TinyFPGA tools and the picov32 GNU compiler.
 
 There are a variety of games that you can build for the console, or you can write your own.
 
+Games that use the RAM SoC consist of just a hardware.bin file containing the FPGA configuration bitstream. This file is always 135100 bytes long.
+
+Games that use the SPI flash memory version of PicoSoC have a firmware.bin file as well that contains code and read-only data. Executing code from
+SPI flash memory is slower than executing it from RAM, particularly when jumpos are done, interrupting the serial reading of the flash data.
+
+A firmware.bin file can be of any length.
+
+The hardware.bin file can be concatentated with the firmware.bin file with padding in betweewn to form a single file for the SD card menu - see below.
+
 #### Dave Gundy's demo
 
 #### Pacman
@@ -224,8 +233,38 @@ There are a variety of games that you can build for the console, or you can writ
 
 If you want multiple games on your console without having to upload them one at a time using the USB connector, you will need to use the SD card.
 To do this you will need to solder wires between pins 32, 33, 24 and 35 and the TinyFPGA BX. But as the console already uses all the pins that are
-available on the header, you will need to reuse existing pins. I used the bins that are connected to the direction buttons as these are not needed for
+available on the header, you will need to reuse existing pins. I used the pins that are connected to the direction buttons as these are not needed for
 an SD card menu.
+
+The SD card menu needs a new multiboot configuration so that the menu can write the hardware.bin file for the game to a new area in SPI flash that the Ice40 can then do a warm
+boot from. The TinyFPGA, out of the box, has a multi-boot configuration with the bootloader at address a0 and the user image at address 0x28000. By default tinyprog
+writes user data (firmeware.bin) to address 0x50000.
+
+The first 160 (0xa0) bytes of SPI flash memory consists of 5 entries of 32 bytes which specify boot configurations. The first is for power-on boot and the other 4 are for warm boots.
+The bootloader warms boots to the second warm boot configuration at address 0x28000. 
+
+There is an icestorm tool, icemulti, which can set up multi-boot configuration, and is is this tool that produced the default TinyFPGA BX multiboot configuration.
+
+To use the SD card menu you need to run icemult and specify all 4 warm configurations with the -a15 parameter to specify the displacement between configurations. This puts
+the 4 warm boot configurations at addresses 0xa0 (for the boot loader), 0x28000 for the SD card menu or other user image , 0x50000, which is used for program code, not a hardware configuration, and
+0x78000, which the SD card menu uses for the game's hardware configuration.
+
+This means that when you reset or power-on the device, the bootloader boots from a0, and then warms boots the SD card menu from address 0x28000. The game only runs when you select
+it from the SD card menu.
+
+Having produced a new multiboot configuration, you need to get it into the SPI flash memory of your BX.
+
+You could use tinyprog for that but you only get one shot at getting it right. If the write fails the bootloader will be corrupted and the BX will not boot.
+
+The alternative is to use some sort of SPI programmer. There are various alternatives for that. One option is to use an Arduino sketch.
+
+The option I took is to use another BX as the programmer. This needs you to rebuild a bootloader with "external" SPI pins. That is you change pins.pcg to use pins 1-4 as the SPOI pins rather than the "internal" omnes 29-32.
+
+You can then run that modified bootloader as a user image and it will act as an SPI programmer for another BX (or other SPI flash device).
+
+Whichever option you take for the SPI programmer, you need to attach wires to the SPI pins on the underside of the BX on the target device. I soldered breadboard wires to mine and removed 
+them after I had changed the multiboot configuration.
+ 
 
 
 

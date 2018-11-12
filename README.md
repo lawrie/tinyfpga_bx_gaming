@@ -131,9 +131,7 @@ A successful game that used mode 7 was Super Mario Kart.
 
 There is a demo of using the TinyFPGA to do something like mode7:
 
-![Mode7](https://img.youtube.com/vi/vtXhnkemzLw/0.jpg "Mode7")
-
-[Mode 7] (https://youtu.be/vtXhnkemzLw "Mode7")
+[![Mode7](https://img.youtube.com/vi/vtXhnkemzLw/0.jpg "Mode7")(https://youtu.be/vtXhnkemzLw "Mode7")]
 
 ### Handheld games consoles
 

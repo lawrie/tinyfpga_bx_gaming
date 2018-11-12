@@ -283,6 +283,8 @@ You can then run that modified bootloader as a user image and it will act as an 
 Whichever option you take for the SPI programmer, you need to attach wires to the SPI pins on the underside of the BX on the target device. I soldered breadboard wires to mine and removed 
 them after I had changed the multiboot configuration.
 
+![SPI programer](https://discourse.tinyfpga.com/uploads/default/original/1X/5ab0ca800e2a03083bcd94ba9d8f25c37a40604e.jpeg "SPI programmer")
+
 ### RAM-only PicoSoC
 
 The SD card menu uses a BRAM-only version of PicoSoC so that the flash memory is not used and this makes it easier to write FPGA configuration and user code to the flash memory.

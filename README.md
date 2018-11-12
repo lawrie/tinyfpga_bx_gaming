@@ -285,9 +285,26 @@ them after I had changed the multiboot configuration.
 
 ![SPI programer](https://discourse.tinyfpga.com/uploads/default/original/1X/5ab0ca800e2a03083bcd94ba9d8f25c37a40604e.jpeg "SPI programmer")
 
-### RAM-only PicoSoC
+### Flashing the menu
 
 The SD card menu uses a BRAM-only version of PicoSoC so that the flash memory is not used and this makes it easier to write FPGA configuration and user code to the flash memory.
+
+To put the SD card menu on the games console do:
+
+```
+  git clone https://github.com/lawrie/tiny_ram_soc
+  cd tiny_ram_soc/examples/sticky_game_menu
+  make
+```
+
+If you want to try the menu without a multiboot configuration you can do
+
+```
+  cd tiny_ram_soc/examples/game_menu
+  make
+```
+
+In that case after you select a game it will replace the menu on the flash memory and you will need to flash the menu again to play another game.
 
 ### Preparing the SD card
 
@@ -296,6 +313,13 @@ and then write up to five games to the root directory. You should not delete any
 the card. 
 
 The game files that you add to the card should combine hardware.bin and firmware.bin with 68xxx bytes of padding in between.
+
+Once you have prepared the SD card, put it in the card reader at the back of the LCD and power-on the games console after flashing the menu.
+
+You should see a screen with the list of your games.
+
+Use the B button to sellect a game and the A button to start it. It takes about 15 seconds before the game starts.
+
 
 
 

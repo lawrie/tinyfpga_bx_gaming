@@ -11,7 +11,7 @@ and drivers for devices such as a VGA screen or an Liquid Cyystal Display (LCD),
 
 This means that an FPGA such as the TinyFPGA BX can replace all the chips used in early games consoles and home computers.
 
-The approach taken here is to to use the [picorv32](https://github.com/cliffordwolf/picorv32) implementation of [Risc-V](https://en.wikipedia.org/wiki/RISC-V) for the CPU 
+The approach taken by this project is to to use the [picorv32](https://github.com/cliffordwolf/picorv32) implementation of [Risc-V](https://en.wikipedia.org/wiki/RISC-V) for the CPU 
 that runs the games. However, it is also possible to use other soft processors, such as a 6502 CPU or a Z80 CPU for specific games.
 
 The TinyFPGA has the resources to emulate games consoles, arcade machines and home computers of the late 1970s, and early 1980s. With extra RAM it could emulate more early
@@ -20,10 +20,10 @@ the Acorn Atom and the BBC Micro.
 
 The next generation of open source FPGAs based on the ECP5 FPGA will be needed for computers and consoles of the late 80s and early 90s, such as the Commodore Amiga.
 
-I will concentate on a portable Games Console that drives a 320 by 240 LCD, but the code in the repositories referenced also supports TV games consoles driven by VGA.
+This project will concentate on a portable Games Console that drives a 320 by 240 LCD, but the code in the repositories referenced also supports TV games consoles driven by VGA.
 Future implementations based on the ECP5 will support HDMI.
 
-The hardware that I am using for the portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
+The hardware used for the portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
 
 ![Games Console](https://discourse.tinyfpga.com/uploads/default/optimized/1X/f4435f46beb1bc25ac96b8b072648f0aa48cb1bf_1_690x388.jpeg "Games Console")
 
@@ -241,12 +241,18 @@ The hardware.bin file can be concatentated with the firmware.bin file with paddi
 
 #### Adventure
 
-### SD card menu
+![Adventure](https://discourse.tinyfpga.com/uploads/default/optimized/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9_1_690x388.jpeg "Adventure")
+
+## SD card menu
+
+### Soldering wires for the SD card
 
 If you want multiple games on your console without having to upload them one at a time using the USB connector, you will need to use the SD card.
 To do this you will need to solder wires between pins 32, 33, 24 and 35 and the TinyFPGA BX. But as the console already uses all the pins that are
 available on the header, you will need to reuse existing pins. I used the pins that are connected to the direction buttons as these are not needed for
 an SD card menu.
+
+### Multi-boot configuration
 
 The SD card menu needs a new multiboot configuration so that the menu can write the hardware.bin file for the game to a new area in SPI flash that the Ice40 can then do a warm
 boot from. The TinyFPGA, out of the box, has a multi-boot configuration with the bootloader at address a0 and the user image at address 0x28000. By default tinyprog
@@ -276,6 +282,20 @@ You can then run that modified bootloader as a user image and it will act as an 
 
 Whichever option you take for the SPI programmer, you need to attach wires to the SPI pins on the underside of the BX on the target device. I soldered breadboard wires to mine and removed 
 them after I had changed the multiboot configuration.
+
+### RAM-only PicoSoC
+
+The SD card menu uses a BRAM-only version of PicoSoC so that the flash memory is not used and this makes it easier to write FPGA configuration and user code to the flash memory.
+
+### Preparing the SD card
+
+The current version of the SD card menu code is rather restrictive oin what FAT32 file systems it can read. You must format your card with 4096 byte clusters
+and then write up to five games to the root directory. You should not delete anything or add anything else. If you want to change things start again by reformatting
+the card. 
+
+The game files that you add to the card should combine hardware.bin and firmware.bin with 68xxx bytes of padding in between.
+
+
 
 
  

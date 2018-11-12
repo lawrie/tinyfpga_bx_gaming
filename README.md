@@ -227,6 +227,8 @@ The hardware.bin file can be concatentated with the firmware.bin file with paddi
 
 #### Asteroids
 
+![Asteroids}(https://discourse.tinyfpga.com/uploads/default/optimized/1X/99cb87082d2940259fdba1fb45484be8496a140e_1_690x467.jpeg "Asteroids")
+
 #### Adventure
 
 ### SD card menu
@@ -264,6 +266,8 @@ You can then run that modified bootloader as a user image and it will act as an 
 
 Whichever option you take for the SPI programmer, you need to attach wires to the SPI pins on the underside of the BX on the target device. I soldered breadboard wires to mine and removed 
 them after I had changed the multiboot configuration.
+
+
  
 
 

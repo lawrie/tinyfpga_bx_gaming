@@ -129,7 +129,7 @@ was mode 7 which implemented a simple 3D view.
 
 A successful game that used mode 7 was Super Mario Kart.
 
-There is a demo of using the TinyFPGA to do something like mode7:
+There is a ![demo](https://github.com/gundy/tinyfpga-bx-demos/tree/develop/examples/mode7) of using the TinyFPGA to do something like mode7:
 
 [![Mode7](https://img.youtube.com/vi/vtXhnkemzLw/0.jpg "Mode7")](https://youtu.be/vtXhnkemzLw "Mode7")
 

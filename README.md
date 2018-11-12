@@ -2,6 +2,8 @@
 
 This repository documents how to use the TinyFPGA BX as a Games Console.
 
+This project was started by a [Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553) on the TinyFPGA forum.
+
 ## Overview
 
 A Field Programmable Gate Array (FPGA) is capable of emulating hardware such as an audio synthesizer, a Graphics Processing Unit (GPU), 
@@ -16,12 +18,12 @@ The TinyFPGA has the resources to emulate games consoles, arcade machines and ho
 80s home computers. The myStorm BlackIce II board which uses a similar (but faster) FPGA has 256kb of external SRAM, which enables it to emulate home computers, such as
 the Acorn Atom and the BBC Micro.
 
-The next generation of open source FPGAs based on the ECP5 FPGA will be need for computers and consoles of the late 80s and early 90s, such as the Commodore Amiga.
+The next generation of open source FPGAs based on the ECP5 FPGA will be needed for computers and consoles of the late 80s and early 90s, such as the Commodore Amiga.
 
 I will concentate on a portable Games Console that drives a 320 by 240 LCD, but the code in the repositories referenced also supports TV games consoles driven by VGA.
 Future implementations based on the ECP5 will support HDMI.
 
-The hardware that I am using for portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
+The hardware that I am using for the portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
 
 ![Games Console](https://discourse.tinyfpga.com/uploads/default/optimized/1X/f4435f46beb1bc25ac96b8b072648f0aa48cb1bf_1_690x388.jpeg "Games Console")
 
@@ -32,8 +34,6 @@ to be used that has 14kb of RAM for the code, data and video RAM. This is suffic
 
 The TinyFPGA also has 1 Mb of flash memory. A significant fraction is available for executing code from. So a version of PicoSoC can be produced that runs the code 
 from flash memory allowing much bigger programs, but still limiting VGA buffers and writeable data to 14kb.
-
-This project was started by a [Discussion](https://discourse.tinyfpga.com/t/bx-portable-game-console-project-collaboration/553) on the TinyFPGA forum.
 
 ### LCD Screen
 
@@ -74,7 +74,7 @@ I ported the FPGAWars group's start of a [Space Invaders game](https://github.co
 
 Another successful arcade game was asteroids. The arcade game used vector graphics to generate the video signal.
 
-We are porting Asteroids to the handheld games console.
+We are porting Asteroids to the handheld games console - see below.
 
 #### Pacman
 
@@ -86,7 +86,7 @@ than the arcade game version.
 
 #### Other arcade games
 
-Other very successful Arcade games included Defender, Donkey Kong, Frogger, Galaga, Joust and Ms PacMan.
+Other very successful Arcade games included Defender, Donkey Kong, Frogger, Galaga, Joust and Ms PacMan. Ports of some of these to our games console may ber coming.
 
 ### Home Games Consoles
 
@@ -96,13 +96,15 @@ The first really successful games console was the Atari 2600. It used a chip cal
 
 There were ports of arcade games such as Pong, Space Invaders for the Atari 2600, but soon new games were being produced by Atari for the 2600.
 
-One example is Adventure.
+One example is Adventure by Warren Robinett:
 
 ##### Adventure
 
-![Advenure](https://discourse.tinyfpga.com/uploads/default/original/1X/3f98d64e9d7cef9f3f0fb2005a9e859e5627ddd9.jpeg "Adventure")
+![Easter Egg](https://upload.wikimedia.org/wikipedia/en/7/73/Adventure_Easteregg.PNG "Easter Egg")
 
 [Adventure and its Easter Egg](https://www.youtube.com/watch?v=VYmfEx3taAM&t=363) are a prominent part of the plot of Steven Spielberg's Ready Player One.
+
+##### Pitfall
 
 Games developers did not get recognition or royalties for their games at Atari, so several of their programmers left to form Activision. One of their most successful games 
 for the Atari 2600 was Pitfall.

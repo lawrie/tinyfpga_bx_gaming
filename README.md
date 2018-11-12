@@ -96,9 +96,9 @@ The first really successful games console was the Atari 2600. It used a chip cal
 
 There were ports of arcade games such as Pong, Space Invaders for the Atari 2600, but soon new games were being produced by Atari for the 2600.
 
-One example is Adventure by Warren Robinett:
-
 ##### Adventure
+
+One example is Adventure by Warren Robinett:
 
 ![Easter Egg](https://upload.wikimedia.org/wikipedia/en/7/73/Adventure_Easteregg.PNG "Easter Egg")
 
@@ -125,9 +125,13 @@ We have the start of a port of Super Mario Bros to our games console.
 After a few years the 8-bit NES was replaced by the 16-bit Super NES. The Super NES supported multiple video modes the most interesting of which
 was mode 7 which implemented a simple 3D view. 
 
+##### Mario Kart
+
 A successful game that used mode 7 was Super Mario Kart.
 
-##### Mario Kart
+There is a demo of using the TinyFPGA to do something like mode7:
+
+![Mode7](A successful game that used mode 7 was Super Mario Kart. "Mode7")
 
 ### Handheld games consoles
 
@@ -153,7 +157,7 @@ There is a port of the Apple One to several icestorm FPGAs including the TinyFPG
 
 The game Breakout was produced by Steve Wozniak, the designer of the Apple One and the Apple Two. He produced it for the Atari 2600.
 
-#### Sinclair ZX Sprectum
+#### Sinclair ZX Spectrum
 
 The ZX Spectrum was a very cheap home computer that very many games were produced for.
 

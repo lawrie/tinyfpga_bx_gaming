@@ -23,7 +23,7 @@ Future implementations based on the ECP5 will support HDMI.
 
 The hardware that I am using for portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
 
-![Games Console](https://discourse.tinyfpga.com/uploads/default/original/1X/5a128efae7be41d5a157ea954480067cdb7e602e.jpeg "Games Console")
+![Games Console](https://discourse.tinyfpga.com/uploads/default/optimized/1X/fbad9ec2068b6b4feefcab10d31f3769fc382d1a_1_690x388.jpeg "Games Console")
 
 The TinyFPGA BX has 16kb of BRAM, or which 2kb is used by picorv32. This allows a RAM-only version of [PicoSoC](https://github.com/cliffordwolf/picorv32/tree/master/picosoc) 
 to be used that has 14kb of RAM for the code, data and video RAM. This is sufficient for emulating early consoles such as the Atari 2600.
@@ -221,13 +221,15 @@ The hardware.bin file can be concatentated with the firmware.bin file with paddi
 
 #### Pacman
 
+![Pacman](https://discourse.tinyfpga.com/uploads/default/original/1X/5a128efae7be41d5a157ea954480067cdb7e602e.jpeg "Pacman")
+
 #### Tetris 
 
 #### Super Mario Bros
 
 #### Asteroids
 
-![Asteroids}(https://discourse.tinyfpga.com/uploads/default/optimized/1X/99cb87082d2940259fdba1fb45484be8496a140e_1_690x467.jpeg "Asteroids")
+![Asteroids](https://discourse.tinyfpga.com/uploads/default/optimized/1X/99cb87082d2940259fdba1fb45484be8496a140e_1_690x467.jpeg "Asteroids")
 
 #### Adventure
 

@@ -23,7 +23,9 @@ Future implementations based on the ECP5 will support HDMI.
 
 The hardware that I am using for portable Games console was produced by [Fabien Chouteau](https://github.com/Fabien-Chouteau/field-programmable-game-console).
 
-![Games Console](https://discourse.tinyfpga.com/uploads/default/optimized/1X/fbad9ec2068b6b4feefcab10d31f3769fc382d1a_1_690x388.jpeg "Games Console")
+![Games Console](https://discourse.tinyfpga.com/uploads/default/optimized/1X/f4435f46beb1bc25ac96b8b072648f0aa48cb1bf_1_690x388.jpeg "Games Console")
+
+![Games Console back](https://discourse.tinyfpga.com/uploads/default/optimized/1X/fbad9ec2068b6b4feefcab10d31f3769fc382d1a_1_690x388.jpeg "Games Console back")
 
 The TinyFPGA BX has 16kb of BRAM, or which 2kb is used by picorv32. This allows a RAM-only version of [PicoSoC](https://github.com/cliffordwolf/picorv32/tree/master/picosoc) 
 to be used that has 14kb of RAM for the code, data and video RAM. This is sufficient for emulating early consoles such as the Atari 2600.
